@@ -1,0 +1,451 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.upload-section {
+    padding: 60px 40px;
+}
+
+.upload-box {
+    border: 3px dashed #667eea;
+    border-radius: 15px;
+    padding: 60px 40px;
+    text-align: center;
+    background: #f8f9ff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.upload-box:hover {
+    border-color: #764ba2;
+    background: #f0f2ff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.upload-box.dragover {
+    border-color: #764ba2;
+    background: #e8ebff;
+    transform: scale(1.02);
+}
+
+.upload-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    color: #667eea;
+    stroke-width: 2;
+}
+
+.upload-box h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.upload-box p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.upload-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1em;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.upload-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.editor-section {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 200px);
+    min-height: 600px;
+}
+
+.toolbar {
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.sheet-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.sheet-tab {
+    padding: 10px 20px;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.sheet-tab:hover {
+    border-color: #667eea;
+    color: #667eea;
+    transform: translateY(-2px);
+}
+
+.sheet-tab.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.toolbar-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(86, 171, 47, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(86, 171, 47, 0.5);
+}
+
+.table-container {
+    flex: 1;
+    overflow: auto;
+    background: #f8f9fa;
+    padding: 20px;
+}
+
+.table-wrapper {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    max-height: 100%;
+}
+
+.editable-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 100%;
+}
+
+.editable-table thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.editable-table th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+    position: relative;
+}
+
+.editable-table th.row-number {
+    background: rgba(255, 255, 255, 0.15);
+    text-align: center;
+    min-width: 60px;
+    width: 60px;
+    font-weight: 600;
+    position: sticky;
+    left: 0;
+    z-index: 11;
+    border-right: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.editable-table th:last-child {
+    border-right: none;
+}
+
+.editable-table tbody tr {
+    border-bottom: 1px solid #e9ecef;
+    transition: background 0.2s ease;
+}
+
+.editable-table tbody tr:hover {
+    background: #f8f9ff;
+}
+
+.editable-table td {
+    padding: 12px 15px;
+    border-right: 1px solid #e9ecef;
+    position: relative;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.column-resizer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    cursor: col-resize;
+    background: transparent;
+    z-index: 12;
+}
+
+.column-resizer:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.editable-table th:hover .column-resizer {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.resize-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    cursor: col-resize;
+}
+
+.editable-table td.row-number {
+    background: #f8f9fa;
+    text-align: center;
+    font-weight: 600;
+    color: #666;
+    min-width: 60px;
+    width: 60px;
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    border-right: 2px solid #dee2e6;
+    cursor: default;
+    user-select: none;
+}
+
+.editable-table tbody tr:hover td.row-number {
+    background: #e9ecef;
+}
+
+.row-select-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #adb5bd;
+    margin-right: 6px;
+    cursor: pointer;
+    background: transparent;
+    box-sizing: border-box;
+}
+
+.row-select-circle.selected {
+    background: #667eea;
+    border-color: #667eea;
+}
+
+.row-select-circle.partial {
+    background: rgba(102, 126, 234, 0.3);
+    border-color: #667eea;
+}
+
+.row-number-label {
+    display: inline-block;
+}
+
+.editable-table tbody tr.row-selected {
+    background: #e3f2fd;
+}
+
+.editable-table td:last-child {
+    border-right: none;
+}
+
+.editable-table td.editing {
+    padding: 0;
+}
+
+.editable-table td input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #667eea;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    background: white;
+}
+
+.editable-table td:not(.editing) {
+    cursor: cell;
+}
+
+.editable-table td:not(.editing):hover {
+    background: #f0f2ff;
+}
+
+.info-bar {
+    background: #f8f9fa;
+    border-top: 2px solid #e9ecef;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* 滚动条样式 */
+.table-wrapper::-webkit-scrollbar,
+.table-container::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.table-wrapper::-webkit-scrollbar-track,
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb,
+.table-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover,
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8em;
+    }
+    
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .sheet-tabs {
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+    
+    .toolbar-actions {
+        width: 100%;
+        justify-content: stretch;
+    }
+    
+    .btn {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
