@@ -1,4 +1,4 @@
-网址：https://meicheng.feishu.cn/wiki/DJqZwXjkFi4mbIkMSxVcwO7fnyc
+网址：https://abcba666.github.io/excel_editor/
 # Excel在线编辑
 一个功能强大的Excel在线编辑器，支持多Sheet分页、在线编辑和下载。
 
@@ -28,6 +28,8 @@
 - **前端**: HTML5, CSS3, JavaScript (ES6+)
 - **Excel处理**: SheetJS (xlsx.js)
 - **样式**: 纯CSS，无依赖
+<img width="1387" height="654" alt="image" src="https://github.com/user-attachments/assets/4630a471-1d8c-4b06-a614-15b1e3202e1f" />
+<img width="1392" height="747" alt="image" src="https://github.com/user-attachments/assets/89bf942f-099f-4f5a-b8c2-45577d593b15" />
 
 ## 浏览器兼容性
 
@@ -42,5 +44,6 @@
 - 所有处理都在浏览器本地完成，数据不会上传到服务器
 - 大文件（>10MB）可能会影响性能
 - 建议使用Chrome浏览器以获得最佳体验
+
 
 
